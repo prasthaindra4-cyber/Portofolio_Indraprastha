@@ -40,44 +40,47 @@ function Index() {
 
       <main className="relative">
         {/* HERO */}
-        <section id="home" className="mx-auto grid min-h-screen max-w-6xl items-center gap-12 px-5 pt-28 md:grid-cols-[1.3fr_1fr]">
+        <section id="home" className="mx-auto grid min-h-[min(900px,100svh)] max-w-6xl items-center gap-12 px-5 pb-16 pt-28 md:grid-cols-[1.2fr_1fr] md:gap-16">
           <div>
             <p className="rise glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs text-muted-foreground">
-              <span className="pulse-dot h-2 w-2 rounded-full bg-primary" /> Open to collaboration & internship
+              <span className="pulse-dot h-2 w-2 rounded-full bg-primary" /> Terbuka untuk kolaborasi &amp; magang
             </p>
-            <h1 className="rise mt-6 text-5xl font-bold leading-[1.05] tracking-tight [animation-delay:.12s] md:text-7xl">
-              Hi, I'm <br /><span className="text-shine">{profile.name}</span>
+            <h1 className="rise mt-6 text-[clamp(3.25rem,7vw,5.75rem)] font-bold leading-[0.98] tracking-[-0.055em] [animation-delay:.12s]">
+              Halo, saya <br /><span className="text-shine">{profile.name}</span>
             </h1>
-            <p className="rise mt-5 font-display text-lg text-muted-foreground [animation-delay:.24s] md:text-xl">
+            <p className="rise mt-6 font-display text-lg text-muted-foreground [animation-delay:.24s] md:text-xl">
               <Typing text={profile.role} />
             </p>
-            <p className="rise mt-5 max-w-lg text-muted-foreground [animation-delay:.36s]">{profile.tagline}</p>
+            <p className="rise mt-5 max-w-lg text-base leading-7 text-muted-foreground [animation-delay:.36s]">{profile.tagline}</p>
             <div className="rise mt-9 flex flex-wrap gap-3 [animation-delay:.48s]">
               <a href="#projects" className={`${btn} group bg-gradient-brand text-primary-foreground hover:-translate-y-0.5 hover:shadow-glow`}>
-                Explore My Work <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                Lihat Proyek <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
               </a>
-              <a href="#contact" className={`${btn} glass hover:-translate-y-0.5 hover:border-primary`}>Contact Me</a>
+              <a href="#contact" className={`${btn} glass hover:-translate-y-0.5 hover:border-primary`}>Hubungi Saya</a>
             </div>
           </div>
           <div className="rise mx-auto [animation-delay:.3s]">
-            <div className="animate-float relative">
-              <div aria-hidden className="spin-slow absolute -inset-8 rounded-full border border-dashed border-primary/30" />
-              <div aria-hidden className="absolute -inset-[3px] overflow-hidden rounded-3xl">
-                <div className="spin-slow absolute -inset-1/2 bg-[conic-gradient(from_0deg,var(--primary),var(--accent),transparent_40%,var(--primary))]" />
-              </div>
-              <div className="relative flex h-80 w-72 items-center justify-center overflow-hidden rounded-3xl bg-secondary md:h-96 md:w-80">
-                <div aria-hidden className="scanline absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
+            <div className="animate-float relative px-3 py-4">
+              <div aria-hidden className="absolute inset-0 rounded-[2rem] border border-primary/20 rotate-[-7deg]" />
+              <div className="glass relative flex h-[23rem] w-[min(19rem,78vw)] items-center justify-center overflow-hidden rounded-[1.75rem] md:h-[27rem] md:w-[21rem]">
+                <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,color-mix(in_oklab,var(--primary)_22%,transparent),transparent_62%)]" />
+                <div aria-hidden className="bg-grid absolute inset-0 opacity-40" />
+                <div aria-hidden className="absolute -right-10 -top-10 h-40 w-40 rounded-full border border-accent/20" />
+                <div aria-hidden className="absolute -bottom-16 -left-10 h-48 w-48 rounded-full border border-primary/20" />
                 {profile.photo ? (
-                  <img src={profile.photo} alt={`Foto ${profile.name}`} className="h-full w-full object-cover" />
+                  <img src={profile.photo} alt={`Foto ${profile.name}`} className="absolute inset-0 h-full w-full object-cover" />
                 ) : (
-                  <div className="text-center text-muted-foreground">
-                    <p className="text-shine font-display text-6xl font-bold">IP</p>
-                    <p className="mt-3 text-xs">Placeholder foto profil</p>
+                  <div className="relative text-center">
+                    <p className="text-shine font-display text-8xl font-bold tracking-[-0.08em]">IP</p>
+                    <div className="mx-auto mt-5 h-px w-12 bg-gradient-brand" />
+                    <p className="mt-4 font-display text-sm font-semibold tracking-[0.2em]">{profile.name.toUpperCase()}</p>
+                    <p className="mt-2 text-[10px] tracking-[0.24em] text-muted-foreground">DEVELOPER IN PROGRESS</p>
                   </div>
                 )}
+                <span className="absolute bottom-5 left-5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-[10px] tracking-[0.18em] text-muted-foreground backdrop-blur">PORTFOLIO · 2026</span>
               </div>
-              <code className="glass absolute -bottom-5 -left-10 rounded-lg px-3 py-2 text-xs text-primary">const dev = "indra";</code>
-              <code className="glass absolute -right-8 top-8 rounded-lg px-3 py-2 text-xs text-accent">{"<React />"}</code>
+              <code className="glass absolute -bottom-1 -left-5 rounded-lg px-3 py-2 text-xs text-primary md:-left-8">const dev = "indra";</code>
+              <code className="glass absolute right-0 top-8 rounded-lg px-3 py-2 text-xs text-accent md:-right-5">{"<React />"}</code>
             </div>
           </div>
         </section>
@@ -125,7 +128,7 @@ function Index() {
         </Section>
 
         {/* PROJECTS */}
-        <Section id="projects" kicker="featured work" title="Featured Projects">
+        <Section id="projects" kicker="featured work" title="Proyek Pilihan">
           <div className="grid gap-6">
             {projects.map((p, i) => (
               <Reveal key={p.title} className={`glass card-fx group flex flex-col overflow-hidden rounded-2xl hover:-translate-y-1 lg:flex-row ${i % 2 ? "lg:flex-row-reverse" : ""}`}>
@@ -154,8 +157,8 @@ function Index() {
         </Section>
 
         {/* AI SUMMARY */}
-        <Section id="ai" kicker="ai lab" title="AI Project Summarizer">
-          <p className="-mt-8 mb-8 text-sm text-muted-foreground">Tulis deskripsi proyekmu, dan AI akan mengubahnya menjadi ringkasan siap pakai untuk portofolio.</p>
+        <Section id="ai" kicker="ai lab" title="AI Lab">
+          <p className="-mt-8 mb-8 text-sm text-muted-foreground">Buat ringkasan proyek atau tanyakan sesuatu tentang portofolio ini kepada asisten AI.</p>
           <Reveal><AiSummary /></Reveal>
         </Section>
 
@@ -183,7 +186,7 @@ function Index() {
         </Section>
 
         {/* CONTACT */}
-        <Section id="contact" kicker="contact" title="Let's Build Something Amazing Together">
+        <Section id="contact" kicker="contact" title="Mari Bangun Sesuatu Bersama">
           <div className="grid gap-8 md:grid-cols-2">
             <Reveal>
               <p className="text-muted-foreground">Punya ide proyek, peluang kolaborasi, atau sekadar ingin menyapa? Hubungi saya melalui salah satu kanal berikut.</p>

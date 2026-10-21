@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 
-const links = ["Home", "About", "Skills", "Projects", "AI", "Experience", "Contact"];
+const links = [
+  { label: "Beranda", id: "home" },
+  { label: "Tentang", id: "about" },
+  { label: "Keahlian", id: "skills" },
+  { label: "Proyek", id: "projects" },
+  { label: "AI", id: "ai" },
+  { label: "Pengalaman", id: "experience" },
+  { label: "Kontak", id: "contact" },
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,10 +26,10 @@ export function Navbar() {
           indra<span className="text-primary">.dev</span>
         </a>
         <ul className="hidden gap-7 md:flex">
-          {links.map((l) => (
-            <li key={l}>
-              <a href={`#${l.toLowerCase()}`} className="text-sm text-muted-foreground transition-colors hover:text-primary">
-                {l}
+          {links.map((link) => (
+            <li key={link.id}>
+              <a href={`#${link.id}`} className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                {link.label}
               </a>
             </li>
           ))}
@@ -33,10 +41,10 @@ export function Navbar() {
       </nav>
       {open && (
         <ul className="glass mx-4 mb-4 rounded-xl p-4 md:hidden">
-          {links.map((l) => (
-            <li key={l}>
-              <a href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)} className="block py-2 text-muted-foreground hover:text-primary">
-                {l}
+          {links.map((link) => (
+            <li key={link.id}>
+              <a href={`#${link.id}`} onClick={() => setOpen(false)} className="block py-2 text-muted-foreground hover:text-primary">
+                {link.label}
               </a>
             </li>
           ))}

@@ -3,7 +3,7 @@ export const profile = {
   name: "Indraprastha",
   role: "Informatics Student | Aspiring Software Developer",
   tagline: "Building digital experiences through code, creativity, and technology.",
-  photo: "", // isi dengan URL foto kamu, mis. "/images/foto.jpg"
+  photo: "/foto-indraprastha.png",
   email: "email-kamu@example.com", // GANTI
   github: "https://github.com/prasthaindra4-cyber",
   linkedin: "https://linkedin.com/in/username", // GANTI
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     description:
       "Website pemesanan makanan untuk usaha kuliner dengan katalog menu, keranjang belanja, checkout, dan konsep integrasi AI chatbot untuk membantu pelanggan mendapatkan informasi menu.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB", "AI API"],
-    demo: "#", // GANTI dengan link demo
+    demo: "https://website-restoran-final-88lhuihru-kedai-prasmar.vercel.app",
     source: "https://github.com/prasthaindra4-cyber",
     status: "Portfolio project",
   },
