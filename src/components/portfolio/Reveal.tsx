@@ -24,12 +24,24 @@ export function Reveal({ children, className = "" }: { children: ReactNode; clas
   );
 }
 
-export function Section({ id, kicker, title, children }: { id: string; kicker: string; title: string; children: ReactNode }) {
+export function Section({
+  id,
+  kicker,
+  title,
+  children,
+}: {
+  id: string;
+  kicker: string;
+  title: string;
+  children: ReactNode;
+}) {
   return (
     <section id={id} className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24">
       <Reveal>
-        <p className="font-display text-sm tracking-widest text-primary">// {kicker}</p>
-        <h2 className="mt-2 text-3xl font-bold md:text-4xl">{title}</h2>
+        <p className="section-kicker text-primary">{kicker}</p>
+        <h2 className="mt-3 font-editorial text-4xl font-normal tracking-tight md:text-5xl">
+          {title}
+        </h2>
       </Reveal>
       <div className="mt-12">{children}</div>
     </section>

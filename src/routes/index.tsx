@@ -40,44 +40,54 @@ function Index() {
 
       <main className="relative">
         {/* HERO */}
-        <section id="home" className="mx-auto grid min-h-[min(900px,100svh)] max-w-6xl items-center gap-12 px-5 pb-16 pt-28 md:grid-cols-[1.2fr_1fr] md:gap-16">
+        <section id="home" className="hero-stage relative mx-auto grid min-h-[min(900px,100svh)] max-w-6xl items-center gap-12 overflow-hidden px-5 pb-16 pt-28 md:grid-cols-[1.2fr_1fr] md:gap-16">
+          <div className="hero-ribbon" aria-hidden="true">
+            <svg viewBox="0 0 1100 900" preserveAspectRatio="none">
+              <path d="M650 -70 C820 90 630 170 850 300 S1080 480 810 600 S700 800 1120 980" strokeWidth="2.2" />
+              <path d="M760 -100 C900 80 680 200 920 340 S1030 520 760 670 S810 830 1080 990" strokeWidth="1.4" />
+              <path d="M560 -40 C770 110 600 240 800 360 S980 530 880 700 S720 850 1020 1010" strokeWidth="1" />
+            </svg>
+          </div>
           <div>
-            <p className="rise glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs text-muted-foreground">
+            <p className="rise inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/5 px-4 py-2 text-xs tracking-wide text-primary">
               <span className="pulse-dot h-2 w-2 rounded-full bg-primary" /> Terbuka untuk kolaborasi &amp; magang
             </p>
-            <h1 className="rise mt-6 text-[clamp(3.25rem,7vw,5.75rem)] font-bold leading-[0.98] tracking-[-0.055em] [animation-delay:.12s]">
-              Halo, saya <br /><span className="text-shine">{profile.name}</span>
+            <h1 className="rise mt-7 text-[clamp(3.5rem,8vw,6.5rem)] font-semibold leading-[0.9] tracking-[-0.07em] [animation-delay:.12s]">
+              Halo, saya <br /><span className="text-shine">{profile.name}</span><span className="text-primary">.</span>
             </h1>
-            <p className="rise mt-6 font-display text-lg text-muted-foreground [animation-delay:.24s] md:text-xl">
+            <p className="rise mt-7 font-display text-lg text-muted-foreground [animation-delay:.24s] md:text-xl">
               <Typing text={profile.role} />
             </p>
             <p className="rise mt-5 max-w-lg text-base leading-7 text-muted-foreground [animation-delay:.36s]">{profile.tagline}</p>
-            <div className="rise mt-9 flex flex-wrap gap-3 [animation-delay:.48s]">
-              <a href="#projects" className={`${btn} group bg-gradient-brand text-primary-foreground hover:-translate-y-0.5 hover:shadow-glow`}>
+            <div className="rise mt-10 flex flex-wrap gap-3 [animation-delay:.48s]">
+              <a href="#projects" className={`${btn} group rounded-full bg-primary px-7 text-primary-foreground hover:-translate-y-0.5 hover:shadow-glow`}>
                 Lihat Proyek <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
               </a>
-              <a href="#contact" className={`${btn} glass hover:-translate-y-0.5 hover:border-primary`}>Hubungi Saya</a>
+              <a href="#contact" className={`${btn} rounded-full border border-border bg-foreground/[0.03] hover:-translate-y-0.5 hover:border-primary/60`}>Hubungi Saya</a>
             </div>
           </div>
           <div className="rise mx-auto [animation-delay:.3s]">
-            <div className="animate-float relative px-3 py-4">
-              <div aria-hidden className="absolute inset-0 rounded-[2rem] border border-primary/20 rotate-[-7deg]" />
-              <div className="glass relative flex h-[23rem] w-[min(19rem,78vw)] items-center justify-center overflow-hidden rounded-[1.75rem] md:h-[27rem] md:w-[21rem]">
-                <div aria-hidden className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,color-mix(in_oklab,var(--primary)_22%,transparent),transparent_62%)]" />
-                <div aria-hidden className="bg-grid absolute inset-0 opacity-40" />
-                <div aria-hidden className="absolute -right-10 -top-10 h-40 w-40 rounded-full border border-accent/20" />
+            <div className="relative px-3 py-4">
+              <div className="hero-portrait relative flex h-[23rem] w-[min(19rem,78vw)] items-center justify-center overflow-hidden rounded-[1.75rem] md:h-[27rem] md:w-[21rem]">
+                <div aria-hidden className="bg-grid absolute inset-0 opacity-20" />
+                <div aria-hidden className="absolute -right-10 -top-10 h-40 w-40 rounded-full border border-primary/20" />
                 <div aria-hidden className="absolute -bottom-16 -left-10 h-48 w-48 rounded-full border border-primary/20" />
-                {profile.photo ? (
-                  <img src={profile.photo} alt={`Foto ${profile.name}`} className="absolute inset-0 h-full w-full object-cover" />
-                ) : (
-                  <div className="relative text-center">
-                    <p className="text-shine font-display text-8xl font-bold tracking-[-0.08em]">IP</p>
-                    <div className="mx-auto mt-5 h-px w-12 bg-gradient-brand" />
-                    <p className="mt-4 font-display text-sm font-semibold tracking-[0.2em]">{profile.name.toUpperCase()}</p>
-                    <p className="mt-2 text-[10px] tracking-[0.24em] text-muted-foreground">DEVELOPER IN PROGRESS</p>
+                <div aria-hidden className="hero-art absolute inset-0">
+                  <span className="hero-art__beam" />
+                  <span className="hero-art__trail hero-art__trail--one" />
+                  <span className="hero-art__trail hero-art__trail--two" />
+                  <span className="hero-art__platform" />
+                  <div className="hero-art__hologram">
+                    <span className="hero-art__hologram-back" />
+                    <span className="hero-art__hologram-face hero-art__hologram-face--portrait">
+                      <img src={profile.photo} alt="" className="hero-art__portrait" />
+                      <span className="hero-art__scanlines" />
+                    </span>
                   </div>
-                )}
-                <span className="absolute bottom-5 left-5 rounded-full border border-border bg-background/60 px-3 py-1.5 text-[10px] tracking-[0.18em] text-muted-foreground backdrop-blur">PORTFOLIO · 2026</span>
+                  <span className="hero-art__spark hero-art__spark--one" />
+                  <span className="hero-art__spark hero-art__spark--two" />
+                </div>
+                <span className="absolute bottom-5 left-5 z-10 rounded-full border border-primary/20 bg-background/70 px-3 py-1.5 font-mono text-[10px] tracking-[0.18em] text-primary backdrop-blur">PORTFOLIO · 2026</span>
               </div>
               <code className="glass absolute -bottom-1 -left-5 rounded-lg px-3 py-2 text-xs text-primary md:-left-8">const dev = "indra";</code>
               <code className="glass absolute right-0 top-8 rounded-lg px-3 py-2 text-xs text-accent md:-right-5">{"<React />"}</code>
